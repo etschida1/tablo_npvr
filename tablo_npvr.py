@@ -15,7 +15,8 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
       o = self.path
       opath = PurePosixPath(unquote(urlparse(o).path)).parts[1]
-      if (opath == 'playlist.m3u'):
+      opathlen = len(opath)
+      if (opath[:8] == 'playlist' and opath[opathlen-4:] == '.m3u'):
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
       elif (opath == 'watch'):
         ch = PurePosixPath(unquote(urlparse(o).path)).parts[2]
