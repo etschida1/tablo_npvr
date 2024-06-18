@@ -3,7 +3,7 @@
 
 import requests, json
 
-tabloIP = '192.168.12.34'
+tabloIP = '192.168.2.171'
 playlistIP = '127.0.0.1'
 
 try:
